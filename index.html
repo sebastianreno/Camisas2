@@ -141,6 +141,56 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
+        /* ======== FORMULARIO ======== */
+        .form-section {
+            background: white;
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #1abc9c;
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #16a085;
+        }
+
         /* ======== PIE DE PÁGINA ======== */
         footer {
             background-color: #2c3e50;
@@ -183,6 +233,7 @@
         <a href="#">Productos</a>
         <a href="#">Promociones</a>
         <a href="#">Contacto</a>
+        <a href="#formulario">Formulario</a> <!-- Nuevo enlace -->
     </nav>
 
     <main>
@@ -219,7 +270,61 @@
         <section class="video-section">
             <h2>Consejos de Estilo</h2>
             <p>Mira este video con ideas para combinar tus camisas de manera profesional y moderna:</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/EuKWhjnDM-8?si=HDIM9IILDvu7AvB4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/EuKWhjnDM-8?si=HDIM9IILDvu7AvB4" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        </section>
+
+        <!-- ======== SECCIÓN FORMULARIO ======== -->
+        <section id="formulario" class="form-section">
+            <h2>Formulario de Pedido o Registro</h2>
+            <p>Completa la siguiente información para enviarla al servidor:</p>
+
+            <form action="postphp/procesar_datos.php" method="POST">
+                <!-- Información Personal -->
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required>
+
+                <!-- Información del Pedido -->
+                <label for="tipoCamisa">Tipo de camisa:</label>
+                <select id="tipoCamisa" name="tipoCamisa">
+                    <option value="casual">Casual</option>
+                    <option value="formal">Formal</option>
+                    <option value="sport">Sport</option>
+                </select>
+
+                <label for="talla">Talla:</label>
+                <select id="talla" name="talla">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+
+                <label for="color">Color preferido:</label>
+                <input type="text" id="color" name="color">
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" value="1">
+
+                <label for="comentarios">Comentarios adicionales:</label>
+                <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+
+                <label>
+                    <input type="checkbox" name="suscripcion" value="si">
+                    Deseo recibir promociones por correo
+                </label>
+
+                <!-- Botón de envío -->
+                <button type="submit">Enviar Pedido</button>
+            </form>
         </section>
     </main>
 
