@@ -4,332 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Camisas Modernas</title>
+
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fuente opcional (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* ======== ESTILOS GENERALES ======== */
-        body {
-            font-family: 'Poppins', Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f6f7;
-            color: #333;
-        }
-
-        header {
-            background: linear-gradient(135deg, #2c3e50, #1abc9c);
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-            animation: fadeIn 1.5s ease-in;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            letter-spacing: 1px;
-        }
-
-        nav {
-            background-color: #2c3e50;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            padding: 15px 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        nav a:hover {
-            color: #1abc9c;
-            transform: scale(1.1);
-        }
-
-        main {
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        /* ======== SECCIÓN INTRO ======== */
-        .intro {
-            max-width: 850px;
-            margin: 0 auto 40px auto;
-            font-size: 18px;
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .intro h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            max-width: 600px;
-            margin: 20px auto;
-        }
-
-        ul li {
-            padding: 8px 0;
-            font-size: 16px;
-        }
-
-        ul li::before {
-            content: "✔ ";
-            color: #1abc9c;
-        }
-
-        /* ======== PRODUCTOS ======== */
-        .product-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 270px;
-            padding: 15px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .product-card h3 {
-            color: #2c3e50;
-            margin-top: 10px;
-        }
-
-        /* ======== VIDEO ======== */
-        .video-section {
-            margin-top: 60px;
-            text-align: center;
-        }
-
-        .video-section h2 {
-            color: #2c3e50;
-        }
-
-        .video-section p {
-            margin-bottom: 20px;
-        }
-
-        .video-section iframe {
-            width: 700px;
-            height: 395px;
-            max-width: 95%;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        /* ======== FORMULARIO ======== */
-        .form-section {
-            background: white;
-            max-width: 600px;
-            margin: 60px auto;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            text-align: left;
-        }
-
-        .form-section h2 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        label {
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        input, select, textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-
-        button {
-            background-color: #1abc9c;
-            color: white;
-            font-weight: bold;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background-color: #16a085;
-        }
-
-        /* ======== PIE DE PÁGINA ======== */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
-        }
-
-        /* ======== ANIMACIÓN ======== */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ======== RESPONSIVE ======== */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-            .intro {
-                padding: 20px;
-            }
-            .video-section iframe {
-                width: 100%;
-                height: 250px;
-            }
-        }
+        body { font-family: 'Poppins', sans-serif; }
     </style>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800">
 
-    <header>
-        <h1>Tienda de Camisas Modernas</h1>
-        <p>Estilo, comodidad y calidad en cada prenda</p>
+    <!-- ENCABEZADO -->
+    <header class="bg-gradient-to-r from-gray-800 to-teal-500 text-white text-center py-12">
+        <h1 class="text-4xl font-bold">Tienda de Camisas Modernas</h1>
+        <p class="text-lg mt-2">Estilo, comodidad y calidad en cada prenda</p>
     </header>
 
-    <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Productos</a>
-        <a href="#">Promociones</a>
-        <a href="#">Contacto</a>
-        <a href="#formulario">Formulario</a> <!-- Nuevo enlace -->
+    <!-- NAV -->
+    <nav class="bg-gray-800 text-white flex justify-center gap-6 py-4 text-lg">
+        <a href="#" class="hover:text-teal-400 transition">Inicio</a>
+        <a href="#" class="hover:text-teal-400 transition">Productos</a>
+        <a href="#" class="hover:text-teal-400 transition">Promociones</a>
+        <a href="#" class="hover:text-teal-400 transition">Contacto</a>
+        <a href="#formulario" class="hover:text-teal-400 transition">Formulario</a>
     </nav>
 
-    <main>
-        <section class="intro">
-            <h2>Explora Nuestro Estilo</h2>
-            <p>Bienvenido a <strong>Tienda de Camisas Modernas</strong>. Aquí encontrarás una amplia colección de camisas con diseños exclusivos, materiales de primera y un estilo que se adapta a cada ocasión.</p>
+    <main class="px-6 py-10">
 
-            <ul>
-                <li>Camisas casuales para un look relajado.</li>
-                <li>Camisas formales para eventos y reuniones.</li>
-                <li>Camisas de lino, algodón y mezclas ecológicas.</li>
-                <li>Diseños personalizados y edición limitada.</li>
+        <!-- INTRO -->
+        <section class="bg-white max-w-3xl mx-auto rounded-xl shadow-lg p-8 mb-16">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Explora Nuestro Estilo</h2>
+            <p class="text-gray-700 leading-relaxed">
+                Bienvenido a <strong>Tienda de Camisas Modernas</strong>. Aquí encontrarás una amplia colección 
+                de camisas con diseños exclusivos, materiales de primera y un estilo que se adapta a cada ocasión.
+            </p>
+
+            <ul class="mt-6 space-y-3 text-gray-700">
+                <li class="flex items-center"><span class="text-teal-500 font-bold mr-2">✔</span>Camisas casuales para un look relajado.</li>
+                <li class="flex items-center"><span class="text-teal-500 font-bold mr-2">✔</span>Camisas formales para eventos y reuniones.</li>
+                <li class="flex items-center"><span class="text-teal-500 font-bold mr-2">✔</span>Camisas de lino, algodón y mezclas ecológicas.</li>
+                <li class="flex items-center"><span class="text-teal-500 font-bold mr-2">✔</span>Diseños personalizados y edición limitada.</li>
             </ul>
         </section>
 
-        <section class="product-grid">
-            <div class="product-card">
-                <img src="imagenes/camisa1.jpg" alt="Camisa blanca elegante">
-                <h3>Camisa Blanca Elegante</h3>
-                <p>Perfecta para eventos y reuniones profesionales.</p>
+        <!-- PRODUCTOS -->
+        <section class="flex flex-wrap justify-center gap-8">
+            <!-- Tarjeta 1 -->
+            <div class="bg-white rounded-xl shadow-md w-64 p-4 hover:shadow-xl hover:-translate-y-2 transition">
+                <img src="imagenes/camisa1.jpg" alt="Camisa blanca elegante" class="rounded-lg h-60 w-full object-cover">
+                <h3 class="text-xl font-semibold mt-3">Camisa Blanca Elegante</h3>
+                <p class="text-gray-600">Perfecta para eventos y reuniones profesionales.</p>
             </div>
-            <div class="product-card">
-                <img src="imagenes/camisa2.jpg" alt="Camisa casual azul">
-                <h3>Camisa Casual Azul</h3>
-                <p>Ideal para un estilo moderno y relajado.</p>
+
+            <!-- Tarjeta 2 -->
+            <div class="bg-white rounded-xl shadow-md w-64 p-4 hover:shadow-xl hover:-translate-y-2 transition">
+                <img src="imagenes/camisa2.jpg" alt="Camisa casual azul" class="rounded-lg h-60 w-full object-cover">
+                <h3 class="text-xl font-semibold mt-3">Camisa Casual Azul</h3>
+                <p class="text-gray-600">Ideal para un estilo moderno y relajado.</p>
             </div>
-            <div class="product-card">
-                <img src="imagenes/camisa3.jpg" alt="Camisa formal negra">
-                <h3>Camisa Formal Negra</h3>
-                <p>Diseño sofisticado que nunca pasa de moda.</p>
+
+            <!-- Tarjeta 3 -->
+            <div class="bg-white rounded-xl shadow-md w-64 p-4 hover:shadow-xl hover:-translate-y-2 transition">
+                <img src="imagenes/camisa3.jpg" alt="Camisa formal negra" class="rounded-lg h-60 w-full object-cover">
+                <h3 class="text-xl font-semibold mt-3">Camisa Formal Negra</h3>
+                <p class="text-gray-600">Diseño sofisticado que nunca pasa de moda.</p>
             </div>
         </section>
 
-        <section class="video-section">
-            <h2>Consejos de Estilo</h2>
-            <p>Mira este video con ideas para combinar tus camisas de manera profesional y moderna:</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/EuKWhjnDM-8?si=HDIM9IILDvu7AvB4" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        <!-- VIDEO -->
+        <section class="mt-20 text-center">
+            <h2 class="text-3xl font-bold text-gray-700">Consejos de Estilo</h2>
+            <p class="text-gray-600 mt-2">Mira este video con ideas para combinar tus camisas:</p>
+
+            <div class="mt-6 flex justify-center">
+                <iframe 
+                    class="rounded-xl shadow-lg w-full max-w-2xl aspect-video"
+                    src="https://www.youtube.com/embed/EuKWhjnDM-8?si=HDIM9IILDvu7AvB4"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </section>
 
-        <!-- ======== SECCIÓN FORMULARIO ======== -->
-        <section id="formulario" class="form-section">
-            <h2>Formulario de Pedido o Registro</h2>
-            <p>Completa la siguiente información para enviarla al servidor:</p>
+        <!-- FORMULARIO -->
+        <section id="formulario" class="bg-white max-w-xl mx-auto rounded-xl shadow-xl p-8 mt-20">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Formulario de Pedido o Registro</h2>
 
-            <form action="postphp/procesar_datos.php" method="POST">
-                <!-- Información Personal -->
-                <label for="nombre">Nombre completo:</label>
-                <input type="text" id="nombre" name="nombre" required>
+            <form action="postphp/procesar_datos.php" method="POST" class="space-y-4">
 
-                <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="correo" required>
+                <label class="font-semibold text-gray-700">Nombre completo:
+                    <input type="text" name="nombre" required class="w-full mt-1 p-2 border rounded-lg">
+                </label>
 
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" required>
+                <label class="font-semibold text-gray-700">Correo electrónico:
+                    <input type="email" name="correo" required class="w-full mt-1 p-2 border rounded-lg">
+                </label>
 
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion" name="direccion" required>
+                <label class="font-semibold text-gray-700">Teléfono:
+                    <input type="tel" name="telefono" required class="w-full mt-1 p-2 border rounded-lg">
+                </label>
 
-                <!-- Información del Pedido -->
-                <label for="tipoCamisa">Tipo de camisa:</label>
-                <select id="tipoCamisa" name="tipoCamisa">
-                    <option value="casual">Casual</option>
-                    <option value="formal">Formal</option>
-                    <option value="sport">Sport</option>
-                </select>
+                <label class="font-semibold text-gray-700">Dirección:
+                    <input type="text" name="direccion" required class="w-full mt-1 p-2 border rounded-lg">
+                </label>
 
-                <label for="talla">Talla:</label>
-                <select id="talla" name="talla">
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
+                <label class="font-semibold text-gray-700">Tipo de camisa:
+                    <select name="tipoCamisa" class="w-full mt-1 p-2 border rounded-lg">
+                        <option value="casual">Casual</option>
+                        <option value="formal">Formal</option>
+                        <option value="sport">Sport</option>
+                    </select>
+                </label>
 
-                <label for="color">Color preferido:</label>
-                <input type="text" id="color" name="color">
+                <label class="font-semibold text-gray-700">Talla:
+                    <select name="talla" class="w-full mt-1 p-2 border rounded-lg">
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
+                </label>
 
-                <label for="cantidad">Cantidad:</label>
-                <input type="number" id="cantidad" name="cantidad" min="1" value="1">
+                <label class="font-semibold text-gray-700">Color preferido:
+                    <input type="text" name="color" class="w-full mt-1 p-2 border rounded-lg">
+                </label>
 
-                <label for="comentarios">Comentarios adicionales:</label>
-                <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+                <label class="font-semibold text-gray-700">Cantidad:
+                    <input type="number" name="cantidad" min="1" value="1" class="w-full mt-1 p-2 border rounded-lg">
+                </label>
 
-                <label>
-                    <input type="checkbox" name="suscripcion" value="si">
+                <label class="font-semibold text-gray-700">Comentarios:
+                    <textarea name="comentarios" rows="4" class="w-full mt-1 p-2 border rounded-lg"></textarea>
+                </label>
+
+                <label class="flex items-center gap-2 text-gray-700">
+                    <input type="checkbox" name="suscripcion" value="si" class="h-4 w-4">
                     Deseo recibir promociones por correo
                 </label>
 
-                <!-- Botón de envío -->
-                <button type="submit">Enviar Pedido</button>
+                <button class="w-full bg-teal-500 text-white py-3 rounded-lg font-bold hover:bg-teal-600 transition">
+                    Enviar Pedido
+                </button>
             </form>
         </section>
+
     </main>
 
-    <footer>
-        <p>© 2025 Tienda de Camisas | Todos los derechos reservados</p>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-20">
+        © 2025 Tienda de Camisas | Todos los derechos reservados
     </footer>
 
 </body>
