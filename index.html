@@ -8,11 +8,7 @@
     <!-- TAILWIND CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Fuente opcional (Poppins) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Poppins', sans-serif; }
-    </style>
+   
 </head>
 <body class="bg-gray-100 text-gray-800">
 
@@ -90,63 +86,93 @@
         <!-- FORMULARIO -->
         <section id="formulario" class="bg-white max-w-xl mx-auto rounded-xl shadow-xl p-8 mt-20">
             <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Formulario de Pedido o Registro</h2>
+<form action="postphp/procesar_datos.php" method="POST" 
+      class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-            <form action="postphp/procesar_datos.php" method="POST" class="space-y-4">
+    <!-- Nombre -->
+    <label class="font-semibold text-gray-700">
+        Nombre completo:
+        <input type="text" name="nombre" required 
+               class="w-full mt-1 p-2 border rounded-lg">
+    </label>
 
-                <label class="font-semibold text-gray-700">Nombre completo:
-                    <input type="text" name="nombre" required class="w-full mt-1 p-2 border rounded-lg">
-                </label>
+    <!-- Correo -->
+    <label class="font-semibold text-gray-700">
+        Correo electrónico:
+        <input type="email" name="correo" required 
+               class="w-full mt-1 p-2 border rounded-lg">
+    </label>
 
-                <label class="font-semibold text-gray-700">Correo electrónico:
-                    <input type="email" name="correo" required class="w-full mt-1 p-2 border rounded-lg">
-                </label>
+    <!-- Teléfono -->
+    <label class="font-semibold text-gray-700">
+        Teléfono:
+        <input type="tel" name="telefono" required 
+               class="w-full mt-1 p-2 border rounded-lg">
+    </label>
 
-                <label class="font-semibold text-gray-700">Teléfono:
-                    <input type="tel" name="telefono" required class="w-full mt-1 p-2 border rounded-lg">
-                </label>
+    <!-- Dirección -->
+    <label class="font-semibold text-gray-700">
+        Dirección:
+        <input type="text" name="direccion" required 
+               class="w-full mt-1 p-2 border rounded-lg">
+    </label>
 
-                <label class="font-semibold text-gray-700">Dirección:
-                    <input type="text" name="direccion" required class="w-full mt-1 p-2 border rounded-lg">
-                </label>
+    <!-- Tipo de camisa -->
+    <label class="font-semibold text-gray-700">
+        Tipo de camisa:
+        <select name="tipoCamisa" class="w-full mt-1 p-2 border rounded-lg">
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+            <option value="sport">Sport</option>
+        </select>
+    </label>
 
-                <label class="font-semibold text-gray-700">Tipo de camisa:
-                    <select name="tipoCamisa" class="w-full mt-1 p-2 border rounded-lg">
-                        <option value="casual">Casual</option>
-                        <option value="formal">Formal</option>
-                        <option value="sport">Sport</option>
-                    </select>
-                </label>
+    <!-- Talla -->
+    <label class="font-semibold text-gray-700">
+        Talla:
+        <select name="talla" class="w-full mt-1 p-2 border rounded-lg">
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+        </select>
+    </label>
 
-                <label class="font-semibold text-gray-700">Talla:
-                    <select name="talla" class="w-full mt-1 p-2 border rounded-lg">
-                        <option>S</option>
-                        <option>M</option>
-                        <option>L</option>
-                        <option>XL</option>
-                    </select>
-                </label>
+    <!-- Color -->
+    <label class="font-semibold text-gray-700">
+        Color preferido:
+        <input type="text" name="color" 
+               class="w-full mt-1 p-2 border rounded-lg">
+    </label>
 
-                <label class="font-semibold text-gray-700">Color preferido:
-                    <input type="text" name="color" class="w-full mt-1 p-2 border rounded-lg">
-                </label>
+    <!-- Cantidad -->
+    <label class="font-semibold text-gray-700">
+        Cantidad:
+        <input type="number" name="cantidad" min="1" value="1" 
+               class="w-full mt-1 p-2 border rounded-lg">
+    </label>
 
-                <label class="font-semibold text-gray-700">Cantidad:
-                    <input type="number" name="cantidad" min="1" value="1" class="w-full mt-1 p-2 border rounded-lg">
-                </label>
+    <!-- Comentarios (ocupa dos columnas) -->
+    <label class="font-semibold text-gray-700 md:col-span-2">
+        Comentarios:
+        <textarea name="comentarios" rows="4" 
+                  class="w-full mt-1 p-2 border rounded-lg"></textarea>
+    </label>
 
-                <label class="font-semibold text-gray-700">Comentarios:
-                    <textarea name="comentarios" rows="4" class="w-full mt-1 p-2 border rounded-lg"></textarea>
-                </label>
+    <!-- Checkbox (ocupa dos columnas) -->
+    <label class="flex items-center gap-2 text-gray-700 md:col-span-2">
+        <input type="checkbox" name="suscripcion" value="si" class="h-4 w-4">
+        Deseo recibir promociones por correo
+    </label>
 
-                <label class="flex items-center gap-2 text-gray-700">
-                    <input type="checkbox" name="suscripcion" value="si" class="h-4 w-4">
-                    Deseo recibir promociones por correo
-                </label>
+    <!-- Botón (ocupa dos columnas) -->
+    <button class="md:col-span-2 bg-teal-500 text-white py-3 rounded-lg font-bold hover:bg-teal-600 transition">
+        Enviar Pedido
+    </button>
 
-                <button class="w-full bg-teal-500 text-white py-3 rounded-lg font-bold hover:bg-teal-600 transition">
-                    Enviar Pedido
-                </button>
-            </form>
+</form>
+
+           
         </section>
 
     </main>
